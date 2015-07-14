@@ -8,7 +8,7 @@ KERNEL_ARC=x86_64
 KERNEL_CONFIG=$(PWD)/centos6_kernel-$(KERNEL_VER).config
 KERNEL_URL=https://www.kernel.org/pub/linux/kernel/v4.x/linux-$(KERNEL_VER).tar.xz
 BUILD_DIR=$(PWD)/build/linux-$(KERNEL_VER)
-THREAD=2
+THREAD=1
 
 all: build-kernel
 
