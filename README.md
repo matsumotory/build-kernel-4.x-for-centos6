@@ -1,6 +1,6 @@
-# kernel-4.x build system for CentOS6
+# kernel-4.x rpm build system for CentOS6
 
-## build
+## build rpm
 
 build into build/linux-4.x.y
 
@@ -15,4 +15,10 @@ make
 ```
 cp -p centos6_kernel-4.1.1.config centos6_kernel-4.x.y.config
 make KERNEL_VER=4.x.y
+```
+
+- Allow N jobs at once
+
+```
+make THREAD=12
 ```
