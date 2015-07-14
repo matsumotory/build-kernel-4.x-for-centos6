@@ -23,3 +23,4 @@ setup:
 
 clean:
 	-rm -rf $(BUILD_DIR)
+	cd ~/rpmbuild/SOURCES/linux-$(KERNEL_VER) && make clean
