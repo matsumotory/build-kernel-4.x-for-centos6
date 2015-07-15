@@ -1,4 +1,4 @@
-# kernel-4.x rpm build system for CentOS6
+# kernel-4.x rpm build for CentOS6
 
 ## build rpm
 
