@@ -20,7 +20,7 @@ build-kernel: setup
 	cd ~/rpmbuild/SOURCES/ && test -f linux-$(KERNEL_VER).tar.xz || wget $(KERNEL_URL)
 	cd ~/rpmbuild/SOURCES/ && test -d linux-$(KERNEL_VER) || tar xvf linux-$(KERNEL_VER).tar.xz
 	cd ~/rpmbuild/SOURCES/linux-$(KERNEL_VER) && test -f $(KERNEL_CONFIG) || cp $(KERNEL_CONFIG_MASTER) $(KERNEL_CONFIG)
-	cd ~/rpmbuild/SOURCES/linux-$(KERNEL_VER) && cp $(KERNEL_CONFIG) ./.config && make oldconfig && make -j$(THREAD) HOSTCXX="$(HOSTCXX)" CC="$(CC)" rpm
+	cd ~/rpmbuild/SOURCES/linux-$(KERNEL_VER) && cp $(KERNEL_CONFIG) ./.config && yes "" | make oldconfig && make -j$(THREAD) HOSTCXX="$(HOSTCXX)" CC="$(CC)" rpm
 	mkdir -p $(BUILD_DIR) && mv ~/rpmbuild/RPMS/$(KERNEL_ARC)/kernel{,-devel,-headers}-$(KERNEL_VER)-?.$(KERNEL_ARC).rpm $(BUILD_DIR)/.
 
 setup:
