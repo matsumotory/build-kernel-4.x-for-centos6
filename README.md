@@ -2,7 +2,7 @@
 
 ## build rpm
 
-build into build/linux-4.x.y
+rpms of kernel was created into build/linux-4.x.y/
 
 - default kernel-4.1.1 for now
 
