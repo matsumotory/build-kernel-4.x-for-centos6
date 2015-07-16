@@ -1,8 +1,8 @@
-# kernel-4.x rpm build for CentOS6
+# kernel-{4,3}.x rpm build for CentOS6
 
 ## build rpm
 
-rpms of kernel was created into build/linux-4.x.y/
+rpms of kernel was created into `build/linux-{4,3}.x.y/`
 
 - default kernel-4.1.1 for now
 
@@ -10,11 +10,14 @@ rpms of kernel was created into build/linux-4.x.y/
 make
 ```
 
-- build other 4.x.y version
+- build other kernel version
 
 ```
-cp -p centos6_kernel-4.1.1.config centos6_kernel-4.x.y.config
-make KERNEL_VER=4.x.y
+make KERNEL_VER=4.1.2
+```
+
+```
+make KERNEL_VER=3.18.18
 ```
 
 - Allow N jobs at once
@@ -22,6 +25,7 @@ make KERNEL_VER=4.x.y
 ```
 make THREAD=12
 ```
+
 ## LICENSE
 under the MIT License:
 - see LICENSE file
