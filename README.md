@@ -22,3 +22,7 @@ make KERNEL_VER=4.x.y
 ```
 make THREAD=12
 ```
+## LICENSE
+under the MIT License:
+- see LICENSE file
+
