@@ -20,7 +20,7 @@ all: build-kernel
 
 build-kernel: setup
 	cd ~/rpmbuild/SOURCES/linux-$(KERNEL_VER) && test -f $(KERNEL_CONFIG) || cp $(KERNEL_CONFIG_MASTER) $(KERNEL_CONFIG)
-	cd ~/rpmbuild/SOURCES/linux-$(KERNEL_VER) && cp $(KERNEL_CONFIG) ./.config && make olddefconfig && make -j$(THREAD) HOSTCXX="$(HOSTCXX)" CC="$(CC)" rpm
+	cd ~/rpmbuild/SOURCES/linux-$(KERNEL_VER) && cp $(KERNEL_CONFIG) ./.config && make olddefconfig && USE_CCACHE=1 CCACHE_DIR=~/.ccache make -j$(THREAD) HOSTCXX="$(HOSTCXX)" CC="$(CC)" rpm
 	mkdir -p $(BUILD_DIR) && mv ~/rpmbuild/RPMS/$(KERNEL_ARC)/kernel*-$(KERNEL_VER)-?.$(KERNEL_ARC).rpm $(BUILD_DIR)/.
 
 setup:
