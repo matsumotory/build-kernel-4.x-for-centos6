@@ -17,8 +17,8 @@ THREAD=1
 HOSTCXX=ccache g++
 CC=ccache gcc
 
-# check rc version: 4.2-rc2
-KERNEL_RPM_NAME=$(subst -,.0-,$(KERNEL_VER))
+# check and rename rpm for rc version: 4.2-rc2 to 4.2.0_rc2
+KERNEL_RPM_VER=$(subst -,.0_,$(KERNEL_VER))
 
 all: build-kernel
 
