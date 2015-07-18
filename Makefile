@@ -17,12 +17,15 @@ THREAD=1
 HOSTCXX=ccache g++
 CC=ccache gcc
 
+# check rc version: 4.2-rc2
+KERNEL_RPM_NAME=$(subst -,.0-,$(KERNEL_VER))
+
 all: build-kernel
 
 build-kernel: setup
 	cd ~/rpmbuild/SOURCES/linux-$(KERNEL_VER) && test -f $(KERNEL_CONFIG) || cp $(KERNEL_CONFIG_MASTER) $(KERNEL_CONFIG)
 	cd ~/rpmbuild/SOURCES/linux-$(KERNEL_VER) && cp $(KERNEL_CONFIG) ./.config && make olddefconfig && USE_CCACHE=1 CCACHE_DIR=~/.ccache make -j$(THREAD) HOSTCXX="$(HOSTCXX)" CC="$(CC)" rpm
-	mkdir -p $(BUILD_DIR) && mv ~/rpmbuild/RPMS/$(KERNEL_ARC)/kernel*-$(KERNEL_VER)-?.$(KERNEL_ARC).rpm $(BUILD_DIR)/.
+	mkdir -p $(BUILD_DIR) && mv ~/rpmbuild/RPMS/$(KERNEL_ARC)/kernel*-$(KERNEL_RPM_VER)-?.$(KERNEL_ARC).rpm $(BUILD_DIR)/.
 
 setup:
 	mkdir -p ~/rpmbuild/{BUILD,BUILDROOT,RPMS,SOURCES,SPECS,SRPMS}
