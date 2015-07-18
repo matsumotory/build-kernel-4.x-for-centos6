@@ -12,6 +12,7 @@ KERNEL_URL_V3=https://www.kernel.org/pub/linux/kernel/v3.x/linux-$(KERNEL_VER).t
 KERNEL_URL_MAINLINE=https://www.kernel.org/pub/linux/kernel/v4.x/testing/linux-$(KERNEL_VER).tar.xz
 BUILD_DIR=$(PWD)/build/linux-$(KERNEL_VER)
 THREAD=1
+
 # use ccache
 HOSTCXX=ccache g++
 CC=ccache gcc
