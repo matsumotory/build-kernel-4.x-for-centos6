@@ -33,5 +33,5 @@ setup:
 	cd ~/rpmbuild/SOURCES/ && test -d linux-$(KERNEL_VER) || tar xvf linux-$(KERNEL_VER).tar.xz
 
 clean:
-	-rm -rf $(BUILD_DIR)
+	-rm -rf $(BUILD_DIR) $(KERNEL_CONFIG)
 	cd ~/rpmbuild/SOURCES/linux-$(KERNEL_VER) && make clean && make mrproper
