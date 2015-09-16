@@ -14,8 +14,8 @@ BUILD_DIR=$(PWD)/build/linux-$(KERNEL_VER)
 THREAD=1
 
 # use ccache
-HOSTCXX=ccache g++
-CC=ccache gcc
+HOSTCXX=g++
+CC=gcc
 
 # check and rename rpm for rc version: 4.2-rc2 to 4.2.0_rc2
 KERNEL_RPM_VER=$(subst -,.0_,$(KERNEL_VER))
