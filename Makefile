@@ -5,6 +5,7 @@ PWD=$(shell pwd)
 
 KERNEL_VER=4.1.1
 KERNEL_ARC=x86_64
+
 KERNEL_BUILD_HOST=
 KERNEL_BUILD_USER=
 KERNEL_LOCAL_VER=
@@ -27,7 +28,7 @@ all: build-kernel
 
 build-kernel: setup
 	cd ~/rpmbuild/SOURCES/linux-$(KERNEL_VER) && test -f $(KERNEL_CONFIG) || cp $(KERNEL_CONFIG_MASTER) $(KERNEL_CONFIG)
-	cd ~/rpmbuild/SOURCES/linux-$(KERNEL_VER) && test -z $(KERNEL_LOCAL_VER) || sed -i "s/^CONFIG_LOCALVERSION=.*$/CONFIG_LOCALVERSION=$(KERNEL_LOCAL_VER)/" $(KERNEL_CONFIG)
+	cd ~/rpmbuild/SOURCES/linux-$(KERNEL_VER) && test -z $(KERNEL_LOCAL_VER) || sed -i "s/^CONFIG_LOCALVERSION=.*/CONFIG_LOCALVERSION=\"$(KERNEL_LOCAL_VER)\"/" $(KERNEL_CONFIG)
 	cd ~/rpmbuild/SOURCES/linux-$(KERNEL_VER) && \
 		cp $(KERNEL_CONFIG) ./.config && \
 		make olddefconfig && \
